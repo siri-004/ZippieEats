@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZippieEats | Find Food Faster</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: #ff652f;
+      color: white;
+    }
+
+    .navbar input {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+      width: 250px;
+    }
+
+    .main-container {
+      display: flex;
+      height: calc(100vh - 60px); /* full viewport minus header */
+    }
+
+    .left-panel {
+      width: 30%;
+      overflow-y: auto;
+      padding: 10px;
+      border-right: 1px solid #ddd;
+    }
+
+    .right-panel {
+      width: 70%;
+      height: 100%;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    .restaurant-card {
+      padding: 10px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #f8f8f8;
+    }
+
+    .restaurant-card:hover {
+      background: #ffe5d5;
+    }
+
+    .route-controls {
+      display: flex;
+      gap: 5px;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      background: #fff8f5;
+    }
+
+    .route-controls input,
+    .route-controls button {
+      padding: 5px;
+    }
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <h1>ZippieEats 🍽️</h1>
+    <input type="text" placeholder="Search restaurants near you..." />
+  </header>
+
+  <div class="route-controls">
+    <button id="useCurrentBtn">📍 Use Current Location</button>
+    <input type="text" id="startInput" placeholder="Enter starting location">
+    <input type="text" id="destInput" placeholder="Enter destination location">
+    <button id="routeBtn">Show Restaurants</button>
+  </div>
+
+  <div class="main-container">
+    <div class="left-panel" id="restaurantList"></div>
+    <div class="right-panel">
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- JS -->
+  <script src="js/map.js"></script>
+</body>
+</html>
