@@ -5,14 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZippieEats | Find Food Faster</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Leaflet CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet/dist/leaflet.css"
-  />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 
   <style>
     body {
@@ -29,16 +23,9 @@
       color: white;
     }
 
-    .navbar input {
-      padding: 5px;
-      border-radius: 5px;
-      border: none;
-      width: 250px;
-    }
-
     .main-container {
       display: flex;
-      height: calc(100vh - 60px); /* full viewport minus header */
+      height: calc(100vh - 110px);
     }
 
     .left-panel {
@@ -50,7 +37,6 @@
 
     .right-panel {
       width: 70%;
-      height: 100%;
     }
 
     #map {
@@ -81,21 +67,20 @@
 
     .route-controls input,
     .route-controls button {
-      padding: 5px;
+      padding: 6px;
     }
-
   </style>
 </head>
+
 <body>
   <header class="navbar">
     <h1>ZippieEats 🍽️</h1>
-    <input type="text" placeholder="Search restaurants near you..." />
   </header>
 
   <div class="route-controls">
+    <input type="text" id="startInput" placeholder="Enter start location">
     <button id="useCurrentBtn">📍 Use Current Location</button>
-    <input type="text" id="startInput" placeholder="Enter starting location">
-    <input type="text" id="destInput" placeholder="Enter destination location">
+    <input type="text" id="destInput" placeholder="Enter destination">
     <button id="routeBtn">Show Restaurants</button>
   </div>
 
@@ -106,10 +91,7 @@
     </div>
   </div>
 
-  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-  <!-- JS -->
   <script src="js/map.js"></script>
 </body>
 </html>
