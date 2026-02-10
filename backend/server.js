@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const path = require("path"); // add this at the top
+const path = require("path");
 require("dotenv").config();
 
 const app = express();
@@ -19,21 +19,13 @@ app.use("/api/user", require("./routes/user.routes"));
 // ======================
 // Serve Static Frontend
 // ======================
-// This should come **after your API routes**
-app.use(express.static(path.join(__dirname, "frontend"))); // public = folder with your index.html
+// Make sure this comes AFTER API routes
+app.use(express.static(path.join(__dirname, "frontend")));
 
-// For any other routes (SPA fallback)
-app.get("*", (req, res) => {
+// SPA fallback: for any route not handled by API, send index.html
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
-
-// ======================
-// Test Route (Optional)
-// ======================
-// You can keep this for testing, but it may be replaced by the "*" route above
-// app.get("/", (req, res) => {
-//   res.send("ZippieEats backend running 🚀");
-// });
 
 // ======================
 // Start Server
