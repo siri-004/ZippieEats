@@ -1,22 +1,19 @@
-document.getElementById("loginForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
+async function login() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const res = await fetch("http://localhost:5000/api/auth/login", {
+  const res = await fetch("http://localhost:5000/api/user/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ email, password })
   });
 
   const data = await res.json();
 
-  if (res.ok) {
+  if (res.ok && data.token) {
     localStorage.setItem("token", data.token);
-    alert("Login successful");
-    window.location.href = "index.html";
+    window.location.href = "dashboard.html";
   } else {
-    alert(data.message);
+    document.getElementById("msg").innerText = data.message;
   }
-});
+}
