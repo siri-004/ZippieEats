@@ -22,7 +22,15 @@ async function login() {
 
     // ❌ login failed
     if (!res.ok) {
-      msg.innerText = data.message || "Login failed";
+      // check if the user is not registered
+      if (data.message && data.message.toLowerCase().includes("not registered")) {
+        msg.innerText = "User not registered. Redirecting to registration page...";
+        setTimeout(() => {
+          window.location.href = "register.html"; // redirect after 1.5 seconds
+        }, 1500);
+      } else {
+        msg.innerText = data.message || "Login failed";
+      }
       return;
     }
 
@@ -32,7 +40,6 @@ async function login() {
 
       // 🔁 redirect to ZippieEats main page
       window.location.href = "index.html"; 
-      // change to dashboard.html only if it exists
     } else {
       msg.innerText = "Invalid server response";
     }
