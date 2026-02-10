@@ -20,11 +20,11 @@ app.use("/api/user", require("./routes/user.routes"));
 // Serve Static Frontend
 // ======================
 // This should come **after your API routes**
-app.use(express.static(path.join(__dirname, "public"))); // public = folder with your index.html
+app.use(express.static(path.join(__dirname, "frontend"))); // public = folder with your index.html
 
 // For any other routes (SPA fallback)
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 
 // ======================
