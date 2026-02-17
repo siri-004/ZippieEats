@@ -3,15 +3,18 @@
   "version": "1.0.0",
   "description": "Backend for ZippieEats",
   "main": "server.js",
+  "type": "commonjs",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^5.2.1",
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
     "dotenv": "^17.2.4",
-    "bcrypt": "^6.0.0",
+    "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
-    "pg": "^8.18.0"
+    "pg": "^8.18.0",
+    "postgres": "^3.4.8",
+    "sqlite3": "^5.0.2"
   }
 }
