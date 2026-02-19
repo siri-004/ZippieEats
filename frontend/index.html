@@ -23,6 +23,20 @@
       color: white;
     }
 
+    .logout-btn {
+      background: white;
+      color: #ff652f;
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .logout-btn:hover {
+      background: #ffe5d5;
+    }
+
     .main-container {
       display: flex;
       height: calc(100vh - 110px);
@@ -73,8 +87,18 @@
 </head>
 
 <body>
+
+  <!-- 🔐 LOGIN PROTECTION SCRIPT -->
+  <script>
+    const token = localStorage.getItem("token");
+    if (!token) {
+      window.location.href = "login.html";
+    }
+  </script>
+
   <header class="navbar">
     <h1>ZippieEats 🍽️</h1>
+    <button class="logout-btn" onclick="logout()">Logout</button>
   </header>
 
   <div class="route-controls">
@@ -90,6 +114,13 @@
       <div id="map"></div>
     </div>
   </div>
+
+  <script>
+    function logout() {
+      localStorage.removeItem("token");
+      window.location.href = "login.html";
+    }
+  </script>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="js/map.js"></script>
