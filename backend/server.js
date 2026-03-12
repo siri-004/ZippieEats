@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, "../frontend")));
 
 // Default route → show login page first
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/login.html"));
+  res.sendFile(path.join(__dirname, "../frontend/landing.html"));
 });
 
 // ======================
