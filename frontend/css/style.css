@@ -1,81 +1,204 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
+html, body{
+    height:100%;
     font-family: Arial, sans-serif;
+    background:#f4f6f8;
 }
 
-/* Navbar */
-.navbar {
-    padding: 15px 20px;
-    background: #ff6b35;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* ---------------- NAVBAR ---------------- */
+
+.navbar{
+    padding:15px 25px;
+    background:#ff6b35;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:18px;
+    font-weight:bold;
 }
 
-.navbar input {
-    padding: 8px;
-    width: 250px;
-    border-radius: 5px;
-    border: none;
+.navbar input{
+    padding:8px 12px;
+    width:260px;
+    border-radius:6px;
+    border:none;
+    outline:none;
 }
 
-/* Main Layout */
-.container {
-    display: flex;
-    height: calc(100vh - 140px);
+/* ---------------- MAIN APP LAYOUT ---------------- */
+
+.container{
+    display:flex;
+    height:calc(100vh - 70px);
 }
 
-/* Left Side */
-.restaurant-list {
-    width: 35%;
-    overflow-y: auto;
-    padding: 15px;
-    background: #f9f9f9;
-}
-/*Right Side */
-#map {
-    width: 65%;
-    height: 100vh;
-}
-.controls {
-  display: flex;
-  gap: 10px;
-  padding: 10px;
-}
-html, body {
-    height: 100%;
+/* LEFT SIDE RESTAURANTS */
+
+.restaurant-list{
+    width:35%;
+    overflow-y:auto;
+    padding:20px;
+    background:#fafafa;
 }
 
-.restaurant-list h2 {
-  margin-bottom: 10px;
+.restaurant-list h2{
+    margin-bottom:15px;
 }
 
-.restaurant-card {
-  background: white;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  transition: transform 0.2s;
+/* RESTAURANT CARD */
+
+.restaurant-card{
+    background:white;
+    padding:15px;
+    margin-bottom:12px;
+    border-radius:10px;
+    cursor:pointer;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    transition:all 0.2s ease;
 }
 
-.restaurant-card:hover {
-  transform: scale(1.02);
+.restaurant-card:hover{
+    transform:scale(1.02);
 }
 
-.restaurant-name {
-  font-weight: bold;
-  margin-bottom: 4px;
+.restaurant-name{
+    font-weight:bold;
+    margin-bottom:4px;
 }
 
-.restaurant-distance {
-  font-size: 13px;
-  color: #666;
+.restaurant-distance{
+    font-size:13px;
+    color:#666;
+}
+
+/* RIGHT SIDE MAP */
+
+#map{
+    width:65%;
+    height:100vh;
+}
+
+/* CONTROLS */
+
+.controls{
+    display:flex;
+    gap:10px;
+    padding:10px;
+}
+
+/* ---------------- LANDING PAGE ---------------- */
+
+.landing-container{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.landing-container h1{
+    font-size:40px;
+    color:#ff6b35;
+    margin-bottom:10px;
+}
+
+.landing-container p{
+    font-size:18px;
+    margin-bottom:30px;
+    color:#555;
+}
+
+.landing-buttons{
+    display:flex;
+    gap:20px;
+}
+
+.landing-buttons button{
+    padding:12px 25px;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-btn{
+    background:#ff6b35;
+    color:white;
+}
+
+.login-btn:hover{
+    background:#e85c2c;
+}
+
+.register-btn{
+    background:#333;
+    color:white;
+}
+
+.register-btn:hover{
+    background:#111;
+}
+
+/* ---------------- AUTH PAGES ---------------- */
+
+.auth-container{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.auth-box{
+    background:white;
+    padding:35px;
+    width:320px;
+    border-radius:10px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+.auth-box h2{
+    margin-bottom:20px;
+}
+
+.auth-box input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+.auth-box button{
+    width:100%;
+    padding:10px;
+    background:#ff6b35;
+    border:none;
+    border-radius:6px;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.auth-box button:hover{
+    background:#e85c2c;
+}
+
+.auth-box p{
+    margin-top:15px;
+    font-size:14px;
+}
+
+.auth-box a{
+    color:#ff6b35;
+    text-decoration:none;
 }
