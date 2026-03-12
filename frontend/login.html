@@ -2,20 +2,22 @@
 <html>
 <head>
 <title>Login - ZippieEats</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<div class="container">
+<div class="auth-container">
+
+<div class="auth-box">
 
 <h2>Login</h2>
 
 <form id="loginForm">
 
-<input type="email" placeholder="Email" required>
+<input type="email" id="email" placeholder="Email" required>
 
-<input type="password" placeholder="Password" required>
+<input type="password" id="password" placeholder="Password" required>
 
 <button type="submit">Login</button>
 
@@ -25,6 +27,51 @@
 <a href="register.html">Register Here</a>
 
 </div>
+
+</div>
+
+<script>
+
+document.getElementById("loginForm").addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+try{
+
+const res = await fetch("/api/auth/login",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({email,password})
+});
+
+const data = await res.json();
+
+if(res.ok){
+
+localStorage.setItem("token", data.token);
+
+window.location.href = "index.html";
+
+}else{
+
+alert(data.message || "Login failed");
+
+}
+
+}catch(err){
+
+alert("Server error");
+
+}
+
+});
+
+</script>
 
 </body>
 </html>

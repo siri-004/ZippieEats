@@ -20,21 +20,19 @@ app.use("/api/auth", authRoutes);
 app.use("/api/user", require("./routes/user.routes"));
 
 // ======================
-// Serve Static Frontend
+// Serve Frontend
 // ======================
-
-// Serve entire frontend folder (NOT a single file)
 app.use(express.static(path.join(__dirname, "../frontend")));
 
-// Default route → show login page first
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/landing.html"));
+  res.sendFile(path.join(__dirname, "../frontend", "landing.html"));
 });
 
 // ======================
 // Start Server
 // ======================
 const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
